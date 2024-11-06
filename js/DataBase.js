@@ -1,20 +1,36 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
-export default class DataBase {
+class DataBase {
   constructor() {
     this.supabase = createClient(
       "https://unswumzybkmeifdigbfn.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVuc3d1bXp5YmttZWlmZGlnYmZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc0MzUwOTAsImV4cCI6MjA0MzAxMTA5MH0.dtg6STJJZEJIpRLy7dNr1lSnG4qvAEELkvrjcCzjPYo",
     );
+    this.btnDBRequest = document.getElementById("btnDBRequest");
+    this.displayData = document.getElementById("dBData");
   }
-  async SupabaseApi() {
+  SupabaseApi() {
     // Create a single supabase client for interacting with your database
 
-    let { data: Quizz, error } = await this.supabase
+    /*let { data: Quizz, error } = await this.supabase
       .from("Quizz")
       .select("")
       .match({ id: 2 });
 
-    console.log("Hej");
+    */
+    this.btnDBRequest.addEventListener("click", async (event) => {
+        console.log("loading...");
+
+        try {
+            const { data, sak } = await this.supabase
+            .from('Quizz')
+            .eq('id', 2);
+            this.displayData.innerHTML = data;
+        }
+        catch (even) {
+            console.log("An Error has occured: " + event);
+        }
+    })
   }
 }
+
+export default DataBase;

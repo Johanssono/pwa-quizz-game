@@ -1,5 +1,5 @@
-import DataBase from "./DataBase";
-console.log("start");
+import DataBase from "./DataBase.js";
+
 class Main {
   constructor() {}
   RegisterServiceWorker() {
@@ -11,7 +11,13 @@ class Main {
   }
 }
 
+
+
+
+
 const main = new Main();
 main.RegisterServiceWorker();
-console.log("Hesssss");
-DataBase.SupabaseApi();
+const dataBase = new DataBase();
+dataBase.SupabaseApi();
+console.log("loading...");
+
