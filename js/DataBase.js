@@ -10,10 +10,11 @@ class DataBase {
   }
   async GetARowFrow(table, idToRow) {
     try {
-        const { data, sak } = await this.supabase
+        const { data, error } = await this.supabase
         .from(table)
         .select()
         .eq('id', idToRow);
+        console.log(table, data);
         return data;
     }
     catch (e) {

@@ -17,12 +17,13 @@ class Main {
     this.RegisterServiceWorker();
 
     this.btnDBRequest.addEventListener("click", async () => {
-      const data = await this.dataBase.SupabaseApi();
+      const DBData = await this.dataBase.GetARowFrow('quizz', 1);
       
-      data.map(data => {
-        this.displayData.innerHTML = data.question;
+      DBData.map(data => {
+        this.displayData.innerHTML = data.questions;
       });
     });
+
   }
 }
 
