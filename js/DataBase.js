@@ -1,4 +1,4 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 class DataBase {
   constructor() {
@@ -6,21 +6,18 @@ class DataBase {
       "https://unswumzybkmeifdigbfn.supabase.co",
       "KEY",
     );
-    
   }
   async GetARowFrow(table, idToRow) {
     try {
-        const { data, error } = await this.supabase
+      const { data, error } = await this.supabase
         .from(table)
         .select()
-        .eq('id', idToRow);
-        console.log(table, data);
-        return data;
+        .eq("id", idToRow);
+      console.log(table, data);
+      return data;
+    } catch (e) {
+      console.log("An Error has occured: " + event);
     }
-    catch (e) {
-        console.log("An Error has occured: " + event);
-    }
-    
   }
 }
 

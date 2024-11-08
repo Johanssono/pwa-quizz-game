@@ -17,19 +17,14 @@ class Main {
     this.RegisterServiceWorker();
 
     this.btnDBRequest.addEventListener("click", async () => {
-      const DBData = await this.dataBase.GetARowFrow('quizz', 1);
-      
-      DBData.map(data => {
+      const DBData = await this.dataBase.GetARowFrow("quizz", 1);
+
+      DBData.map((data) => {
         this.displayData.innerHTML = data.questions;
       });
     });
-
   }
 }
-
-
-
-
 
 const main = new Main();
 main.Main();
