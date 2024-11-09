@@ -1,15 +1,21 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
 export default class Authentication {
-  constructor(email, password) {
-    this.email = email;
-    this.password = password;
+  constructor() {
+    this.email = document.getElementById("email");
+    this.password = [
+      document.getElementById("password1"),
+      document.getElementById("password2"),
+    ];
   }
 
   async SignUpUser(dataBase) {
     try {
-      let { data, error } = await dataBase.auth.signUp({
-        email: this.email,
-        password: this.password,
+      let { data, error } = await dataBase.supabase.auth.signUp({
+        email: this.email.value,
+        password: this.password.value,
       });
+      console.log(dataBase);
       return dataBase;
     } catch (error) {
       console.error(error);
