@@ -7,7 +7,7 @@ export default class DataBase {
       "KEY",
     );
   }
-  async GetARowFrow(table, idToRow) {
+  async GetARowFrom(table, idToRow) {
     try {
       const { data, error } = await this.supabase
         .from(table)
