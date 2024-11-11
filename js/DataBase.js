@@ -20,12 +20,10 @@ export default class DataBase {
     }
   }
 
-  async SignUpUser(email) {
+  async SignUpUser(email, password) {
     const { data, error } = await this.supabase.auth.signInWithOtp({
       email: email.value,
-      options: {
-        emailRedirectTo: "127.0.0.1:5001",
-      },
+      password: email.value,
     });
 
     if (error) {
@@ -33,17 +31,16 @@ export default class DataBase {
     }
   }
 
-  async SignInUser(email) {
+  async SignInUser(email, password) {
     try {
       const { data, error } = await this.supabase.auth.signInWithOtp({
         email: email.value,
-        options: {
-          emailRedirectTo: "127.0.0.1:5001/index.html",
-        },
+        password: password.value,
       });
       if (error) {
         console.log("swqeawd ", error);
       }
+      console.log(this.supabase.auth.getUser());
     } catch (error) {
       console.log(error);
     }
@@ -55,5 +52,56 @@ export default class DataBase {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async GetUser() {
+    const {
+      data: { user },
+    } = await this.supabase.auth.getUser();
+    return user;
+  }
+
+  async CreateGame() {
+    const initialPoints = 0;
+    const user = await this.GetUser();
+
+    const { data, error } = await this.supabase
+      .from("activeGames")
+      .insert([
+        {
+          player1Points: initialPoints,
+          player2Points: initialPoints,
+          playerTurn: user.id,
+          userId1: user.id,
+        },
+      ])
+      .select();
+  }
+
+  async GetAllActiveGames() {
+    const { data, error } = await this.supabase.from("activeGames").select();
+
+    return data;
+  }
+
+  async UpdateSpesificActiveGame(activeGameId) {
+    const user = await this.GetUser();
+    console.log("hej sjwojdk: ", user.id);
+
+    const { data, error } = await this.supabase
+      .from("activeGames")
+      .update({ userId2: user.id })
+      .eq("id", activeGameId)
+      .select();
+
+    /*const { data, error } = await this.supabase
+      .from("activeGames")
+      .select()
+      .eq("id", activeGameId)
+      .update(
+        {
+          userId2: user.id,
+        }
+      );*/
   }
 }
