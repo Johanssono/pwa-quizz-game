@@ -8,16 +8,14 @@ export default class DataBase {
     );
   }
   async GetARowFrom(table, idToRow) {
-    try {
-      const { data, error } = await this.supabase
-        .from(table)
-        .select()
-        .eq("id", idToRow);
-      console.log(table, data);
-      return data;
-    } catch (e) {
-      console.log("An Error has occured: " + e);
+    const { data, error } = await this.supabase
+      .from(table)
+      .select()
+      .eq("id", idToRow);
+    if (error) {
+      console.log("kunde inte hämta data: ", error);
     }
+    return data;
   }
 
   async SignUpUser(email, password) {
@@ -32,25 +30,21 @@ export default class DataBase {
   }
 
   async SignInUser(email, password) {
-    try {
-      const { data, error } = await this.supabase.auth.signInWithOtp({
-        email: email.value,
-        password: password.value,
-      });
-      if (error) {
-        console.log("swqeawd ", error);
-      }
-      console.log(this.supabase.auth.getUser());
-    } catch (error) {
-      console.log(error);
+    const { data, error } = await this.supabase.auth.signInWithOtp({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) {
+      console.log("swqeawd ", error);
     }
+    console.log(this.supabase.auth.getUser());
+    console.log(error);
   }
 
   async LogOutUser() {
-    try {
-      let { error } = await this.supabase.auth.signOut();
-    } catch (error) {
-      console.log(error);
+    let { error } = await this.supabase.auth.signOut();
+    if (error) {
+      console.log("kunde inte logga ut: ", error);
     }
   }
 
@@ -76,17 +70,24 @@ export default class DataBase {
         },
       ])
       .select();
+
+      if (error) {
+        console.log("Kunde inte spara data: ", error);
+      }
   }
 
   async GetAllActiveGames() {
     const { data, error } = await this.supabase.from("activeGames").select();
+
+    if (error) {
+      console.log("Kunde inte hämta data: ", error);
+    }
 
     return data;
   }
 
   async UpdateSpesificActiveGame(activeGameId) {
     const user = await this.GetUser();
-    console.log("hej sjwojdk: ", user.id);
 
     const { data, error } = await this.supabase
       .from("activeGames")
@@ -94,14 +95,8 @@ export default class DataBase {
       .eq("id", activeGameId)
       .select();
 
-    /*const { data, error } = await this.supabase
-      .from("activeGames")
-      .select()
-      .eq("id", activeGameId)
-      .update(
-        {
-          userId2: user.id,
-        }
-      );*/
+      if (error) {
+        console.log("Kunde inte updatera data: ", error);
+      }
   }
 }
