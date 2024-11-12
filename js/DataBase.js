@@ -7,6 +7,7 @@ export default class DataBase {
       "KEY",
     );
   }
+
   async GetARowFrom(table, idToRow) {
     const { data, error } = await this.supabase
       .from(table)
@@ -21,12 +22,15 @@ export default class DataBase {
     return data;
   }
 
-  async SignUpUser(email) {
+  async SignUpUser(email, password) {
+    if (password[0] !== password[1]) {
+      alert("Lösenorden är inte samma");
+      return;
+    }
+
     const { data, error } = await this.supabase.auth.signInWithOtp({
-      email: email.value,
-      options: {
-        emailRedirectTo: "127.0.0.1:5001",
-      },
+      email: email,
+      password: password,
     });
 
     if (error) {
@@ -36,10 +40,8 @@ export default class DataBase {
 
   async SignInUser(email) {
     const { data, error } = await this.supabase.auth.signInWithOtp({
-      email: email.value,
-      options: {
-        emailRedirectTo: "127.0.0.1:5001/index.html",
-      },
+      email: email,
+      password: password,
     });
     if (error) {
       console.log("Kunde inte logga in användaren: ", error);
