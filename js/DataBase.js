@@ -7,21 +7,29 @@ export default class DataBase {
       "KEY",
     );
   }
+
   async GetARowFrom(table, idToRow) {
     const { data, error } = await this.supabase
       .from(table)
       .select()
-      .eq("id", idToRow);
+
     if (error) {
-      console.log("kunde inte hämta data: ", error);
+      console.log("Kunde inte hämta data: ", error);
+      return;
     }
     return data;
   }
 
   async SignUpUser(email, password) {
+
+    if (password[0] !== password[1]) {
+      alert("Lösenorden är inte samma");
+      return;
+    }
+
     const { data, error } = await this.supabase.auth.signInWithOtp({
-      email: email.value,
-      password: email.value,
+      email: email,
+      password: password,
     });
 
     if (error) {
@@ -82,8 +90,6 @@ export default class DataBase {
     if (error) {
       console.log("Kunde inte hämta data: ", error);
     }
-
-    return data;
   }
 
   async UpdateSpesificActiveGame(activeGameId) {
