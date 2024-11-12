@@ -1,15 +1,24 @@
 import DataBase from "./DataBase.js";
 import EventManager from "./EventManager.js";
+import GameHandeler from "./GameHandeler.js";
 
 class Main {
   constructor() {
     this.dataBase = new DataBase();
     this.eventManager = new EventManager();
+    this.gameHandeler = new GameHandeler();
     this.btnDBRequest = document.getElementById("btnDBRequest");
     this.displayData = document.getElementById("dBData");
     this.btnCreateAccount = document.getElementById("createAccount");
     this.email = document.getElementById("email");
+    this.password = [
+      document.getElementById("password1"),
+      document.getElementById("password2"),
+    ];
     this.btnSignIn = document.getElementById("signIn");
+    this.btnCreateGame = document.getElementById("createGame");
+
+    this.tmp = document.getElementById("tmp");
   }
   RegisterServiceWorker() {
     if ("serviceWorker" in navigator) {
@@ -28,8 +37,6 @@ class Main {
     }
   }
   async CreateAccount() {
-    this.dataBase.SignUpUser(this.email);
-
     const {
       data: { user },
     } = await this.dataBase.supabase.auth.getUser();
@@ -38,8 +45,6 @@ class Main {
   }
 
   async SignInUser() {
-    this.dataBase.SignInUser(this.email);
-
     const {
       data: { user },
     } = await this.dataBase.supabase.auth.getUser();
@@ -50,22 +55,25 @@ class Main {
   }
   Main() {
     const clickEvent = "click";
+    this.eventManager.EventListener(this.tmp, clickEvent, () => {
+      console.log(this.dataBase);
+    });
     this.RegisterServiceWorker();
 
     this.eventManager.EventListener(this.btnDBRequest, clickEvent, () =>
       this.DisplayQuestion(1),
     );
 
-    this.eventManager.EventListener(
-      this.btnCreateAccount,
-      clickEvent,
-      this.CreateAccount.bind(this),
+    this.eventManager.EventListener(this.btnCreateAccount, clickEvent, () =>
+      this.dataBase.SignUpUser(this.email, this.password),
     );
 
-    this.eventManager.EventListener(
-      this.btnSignIn,
-      clickEvent,
-      this.SignInUser.bind(this),
+    this.eventManager.EventListener(this.btnSignIn, clickEvent, () =>
+      this.dataBase.SignInUser(this.email, this.password),
+    );
+
+    this.eventManager.EventListener(this.btnCreateGame, clickEvent, () =>
+      this.gameHandeler.CreateGame(this.dataBase),
     );
   }
 }
