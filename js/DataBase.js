@@ -49,7 +49,7 @@ export default class DataBase {
   }
 
   async LogOutUser() {
-    let { error } = await this.supabase.auth.signOut();
+    const { error } = await this.supabase.auth.signOut();
 
     if (error) {
       console.log("Kunde inte logga ut användaren: ", error);
