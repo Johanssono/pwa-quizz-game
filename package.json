@@ -2,6 +2,7 @@
   "name": "pwa-quizz-game",
   "scripts": {
     "scss": "sass",
+    "sass": "sass --watch css/scss/main.scss:css/main.css",
     "prettier": "prettier . --write"
   },
   "dependencies": {
