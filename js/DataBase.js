@@ -8,16 +8,17 @@ export default class DataBase {
     );
   }
   async GetARowFrom(table, idToRow) {
-    try {
-      const { data, error } = await this.supabase
-        .from(table)
-        .select()
-        .eq("id", idToRow);
-      console.log(table, data);
-      return data;
-    } catch (e) {
-      console.log("An Error has occured: " + e);
+    const { data, error } = await this.supabase
+      .from(table)
+      .select()
+      .eq("id", idToRow);
+
+    if (error) {
+      console.log("Kunde inte hämta data: ", error);
+      return;
     }
+
+    return data;
   }
 
   async SignUpUser(email) {
@@ -34,26 +35,22 @@ export default class DataBase {
   }
 
   async SignInUser(email) {
-    try {
-      const { data, error } = await this.supabase.auth.signInWithOtp({
-        email: email.value,
-        options: {
-          emailRedirectTo: "127.0.0.1:5001/index.html",
-        },
-      });
-      if (error) {
-        console.log("swqeawd ", error);
-      }
-    } catch (error) {
-      console.log(error);
+    const { data, error } = await this.supabase.auth.signInWithOtp({
+      email: email.value,
+      options: {
+        emailRedirectTo: "127.0.0.1:5001/index.html",
+      },
+    });
+    if (error) {
+      console.log("Kunde inte logga in användaren: ", error);
     }
   }
 
   async LogOutUser() {
-    try {
-      let { error } = await this.supabase.auth.signOut();
-    } catch (error) {
-      console.log(error);
+    let { error } = await this.supabase.auth.signOut();
+
+    if (error) {
+      console.log("Kunde inte logga ut användaren: ", error);
     }
   }
 }
