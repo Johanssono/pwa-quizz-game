@@ -28,7 +28,7 @@ class Main {
     }
   }
   async DisplayQuestion(id) {
-    const DBData = await this.dataBase.GetARowFrow("quizz", id);
+    const DBData = await this.dataBase.GetARowFrom("quizz", id);
 
     if (DBData !== null) {
       DBData.map((data) => {
@@ -55,9 +55,6 @@ class Main {
   }
   Main() {
     const clickEvent = "click";
-    this.eventManager.EventListener(this.tmp, clickEvent, () => {
-      console.log(this.dataBase);
-    });
     this.RegisterServiceWorker();
 
     this.eventManager.EventListener(this.btnDBRequest, clickEvent, () =>
@@ -65,11 +62,14 @@ class Main {
     );
 
     this.eventManager.EventListener(this.btnCreateAccount, clickEvent, () =>
-      this.dataBase.SignUpUser(this.email, this.password),
+      this.dataBase.SignUpUser(this.email.value, [
+        this.password[0].value,
+        this.password[1].value,
+      ]),
     );
 
     this.eventManager.EventListener(this.btnSignIn, clickEvent, () =>
-      this.dataBase.SignInUser(this.email, this.password),
+      this.dataBase.SignInUser(this.email.value, this.password.value),
     );
 
     this.eventManager.EventListener(this.btnCreateGame, clickEvent, () =>
