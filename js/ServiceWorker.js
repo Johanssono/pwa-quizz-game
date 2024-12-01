@@ -1,3 +1,4 @@
+/*
 import EventManager from "./EventManager.js";
 
 class ServiceWorker {
@@ -35,6 +36,21 @@ class ServiceWorker {
 
 self.ElementEventListener("fetch", evt => {
   console.log("fetch", evt)
+})
+
+*/
+
+self.addEventListener("install", evt => {
+  evt.waituntil(
+    cashes.open("test cache").then(cache => {
+      cache.addAll(
+        "/",
+        "/main.js",
+        "/main.html",
+        "/style.css"
+      )
+    })
+  )
 })
 
 
