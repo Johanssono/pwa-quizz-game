@@ -1,4 +1,4 @@
-/*
+
 import EventManager from "./EventManager.js";
 
 class ServiceWorker {
@@ -17,10 +17,10 @@ class ServiceWorker {
     event.waitUntil(
         addResourcesToCache([
           "/",
-          "/icon512_maskable.png",
-          "/index.html",
-          "/css/main.css",
-          "/main.js"
+          "../icon512_maskable.png",
+          "../index.html",
+          "../css/main.css",
+          "../main.js"
         ]),
       );
   }
@@ -38,7 +38,7 @@ self.ElementEventListener("fetch", evt => {
   console.log("fetch", evt)
 })
 
-*/
+/*
 
 self.addEventListener("install", evt => {
   evt.waituntil(
@@ -54,3 +54,4 @@ self.addEventListener("install", evt => {
 })
 
 
+*/
