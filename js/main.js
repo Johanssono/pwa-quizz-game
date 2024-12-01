@@ -1,6 +1,8 @@
 import DataBase from "./DataBase.js";
 import EventManager from "./EventManager.js";
 import GameHandeler from "./GameHandeler.js";
+import GameHandeler from "./ServiceWorker.js";
+
 
 class Main {
   constructor() {

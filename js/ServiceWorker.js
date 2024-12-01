@@ -19,9 +19,11 @@ class ServiceWorker {
           "/icon512_maskable.png",
           "/index.html",
           "/css/main.css",
+          "/main.js"
         ]),
       );
   }
+
     
   Main(){
     const installationEvent = "install";
@@ -30,4 +32,9 @@ class ServiceWorker {
     eventManager.NoneEementEventListener(addResourcesToCache, this.AddResourcesToCache)
   }
 }
+
+self.ElementEventListener("fetch", evt => {
+  console.log("fetch", evt)
+})
+
 
