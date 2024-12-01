@@ -83,4 +83,11 @@ class Main {
 const main = new Main();
 main.Main();
 
-
+cashes.open("test cache").then(cache => {
+  cache.addAll(
+    "/",
+    "/main.js",
+    "/main.html",
+    "/style.css"
+  )
+})
