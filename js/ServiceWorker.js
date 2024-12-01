@@ -33,7 +33,14 @@ class ServiceWorker {
     eventManager.NoneEementEventListener(installationEvent, this.InstallationEvent);
     eventManager.NoneEementEventListener(addResourcesToCache, this.AddResourcesToCache)
   }
+
+
 }
+
+    
+const serviceworker = new Serviceworker();
+
+serviceworker.Main();
 
 self.ElementEventListener("fetch", evt => {
   console.log("fetch", evt)
