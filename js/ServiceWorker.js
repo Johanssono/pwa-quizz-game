@@ -1,31 +1,46 @@
+const cacheName = '00001';
 
+const cacheAssets = [
+  'accueil.php',
+  'js/accueil.js',
+  'inc/Headers.php',
+  'inc/footer.php'
+];
 
+// Call Install Event
+self.addEventListener('install', e => {
+  console.log('Service Worker: Installed');
 
+  e.waitUntil(
+    async () => {
+      cache = await caches.open(cacheName);
+      console.log('Service Worker: Caching Files', cache);
+      await cache.addAll(cacheAssets);
+      self.skipWaiting();
+    }
+  );
+});
 
-
-
-
-self.addEventListener("install", evt => {
-  console.log("serviceworker installed")
-  evt.waituntil(
-    cashes.open("test cache").then(cache => {
-      console.log("caching stuf")
-      cache.addAll(
-        "/",
-        "/main.js",
-        "/main.html",
-        "/style.css"
-      )
+// Call Activate Event
+self.addEventListener('activate', e => {
+  console.log('Service Worker: Activated');
+  // Remove unwanted caches
+  e.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== cacheName) {
+            console.log('Service Worker: Clearing Old Cache');
+            return caches.delete(cache);
+          }
+        })
+      );
     })
-  )
-})
+  );
+});
 
-self.addEventListener("active", evt => {
-  consol.log("serviceworker active")
-})
-
-self.addEventListener("fetch", evt => {
-  
-})
-
-
+// Call Fetch Event
+self.addEventListener('fetch', e => {
+  console.log('Service Worker: Fetching');
+  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+});
