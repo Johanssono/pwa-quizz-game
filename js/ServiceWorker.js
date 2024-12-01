@@ -1,57 +1,31 @@
 
-import EventManager from "./EventManager.js";
 
-class ServiceWorker {
-    
-    constructor(){
-        this.eventManager = new EventManager();
-    }
 
-    async AddResourcesToCache(resources){
-        const cache = await cache.open("v1");
-        await cache.addAll(resources);
-    }
 
-  
-  InstallationEvent(event){
-    event.waitUntil(
-        addResourcesToCache([
-          "/",
-          "../icon512_maskable.png",
-          "../index.html",
-          "../css/main.css",
-          "../main.js"
-        ]),
-      );
-  }
 
-    
-  Main(){
-    const installationEvent = "install";
-    const addResourcesToCache = "cache"
-    eventManager.NoneEementEventListener(installationEvent, this.InstallationEvent);
-    eventManager.NoneEementEventListener(addResourcesToCache, this.AddResourcesToCache)
-  }
-}
 
-self.ElementEventListener("fetch", evt => {
-  console.log("fetch", evt)
-})
-
-/*
 
 self.addEventListener("install", evt => {
+  console.log("serviceworker installed")
   evt.waituntil(
     cashes.open("test cache").then(cache => {
+      console.log("caching stuf")
       cache.addAll(
-        "/",
-        "/main.js",
-        "/main.html",
-        "/style.css"
+        "./",
+        "./main.js",
+        "./main.html",
+        "./style.css"
       )
     })
   )
 })
 
+self.addEventListener("active", evt => {
+  consol.log("serviceworker active")
+})
 
-*/
+self.addEventListener("fetch", evt => {
+  
+})
+
+
