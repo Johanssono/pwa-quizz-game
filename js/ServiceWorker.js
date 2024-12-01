@@ -15,16 +15,13 @@ class ServiceWorker {
   
   InstallationEvent(event){
     event.waitUntil(
-      cashes.open("test cache").then(cache => {
-        cache.addAll(
+        addResourcesToCache([
           "/",
-          "../main.js",
-          "../main.html",
-          "../style.css",
-          "./main.js"
-
-        )
-      })
+          "../icon512_maskable.png",
+          "../index.html",
+          "../css/main.css",
+          "../main.js"
+        ]),
       );
   }
 
@@ -55,15 +52,6 @@ self.addEventListener("install", evt => {
     })
   )
 })
-
-
-addResourcesToCache([
-          "/",
-          "../icon512_maskable.png",
-          "../index.html",
-          "../css/main.css",
-          "../main.js"
-        ]),
 
 
 */
