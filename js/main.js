@@ -2,7 +2,6 @@ import DataBase from "./DataBase.js";
 import EventManager from "./EventManager.js";
 import GameHandeler from "./GameHandeler.js";
 
-
 class Main {
   constructor() {
     this.dataBase = new DataBase();
