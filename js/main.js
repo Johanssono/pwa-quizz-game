@@ -4,10 +4,10 @@ self.addEventListener("install", evt => {
     cashes.open("test cache").then(cache => {
       console.log("caching stuf")
       cache.addAll(
-        "/",
-        "/main.js",
-        "/main.html",
-        "/style.css"
+        "./",
+        "./main.js",
+        "./main.html",
+        "./style.css"
       )
     })
   )
