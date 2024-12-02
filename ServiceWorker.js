@@ -1,6 +1,54 @@
+const cacheName = "v1";
+
+const cacheAssets = [
+  "index.html",
+  "/css/main.css",
+  "/js/main.js"
+]
+
+
+
+
+
+
+self.addEventListener("install", e => {
+  console.log("sug den kenneth");
+
+  e.waituntil (
+    cache
+      .open(cacheName)
+      .then(cache => {
+        console.log("kuksugare");
+        cache.addAll(cacheAssets);
+      })
+      .then(() => self.skipwaiting())
+  )
+});
+
+self.addEventListener("install", e => {
+  console.log("jävla skit")
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 import EventManager from "./EventManager.js";
 
+
+debugger
 class ServiceWorker {
     
     constructor(){
@@ -12,6 +60,10 @@ class ServiceWorker {
         await cache.addAll(resources);
     }
 
+
+
+
+
   
   InstallationEvent(event){
     console.log("testererererrrerreerer")
@@ -21,7 +73,7 @@ class ServiceWorker {
           "../icon512_maskable.png",
           "../index.html",
           "../css/main.css",
-          "../main.js"
+          "./main.js"
         ]),
       );
   }
@@ -42,11 +94,13 @@ const serviceworker = new Serviceworker();
 
 serviceworker.Main();
 
+
+
+
 self.ElementEventListener("fetch", evt => {
   console.log("fetch", evt)
 })
 
-/*
 
 self.addEventListener("install", evt => {
   evt.waituntil(
