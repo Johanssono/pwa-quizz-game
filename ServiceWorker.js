@@ -1,8 +1,3 @@
-
-
-
-
-
 import EventManager from "./EventManager.js";
 
 class ServiceWorker {
