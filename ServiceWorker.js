@@ -4,7 +4,7 @@ const assets = [
     './index.html',
     './css/main.css',
     './active-games.html',
-
+    './sign-up.html',
 ];
 
 self.addEventListener('install', evt => {
