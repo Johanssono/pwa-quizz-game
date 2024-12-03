@@ -22,7 +22,7 @@ class Main {
   }
   RegisterServiceWorker() {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./ServiceWorker.js").then((reg) => {
+      navigator.serviceWorker.register("./ServiceWorker.mjs").then((reg) => {
         console.log("Registration succeeded. Scope is " + reg.scope);
       });
     }
