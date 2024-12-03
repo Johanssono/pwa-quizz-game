@@ -3,8 +3,7 @@ const assets = [
     './',
     './index.html',
     './css/main.css',
-
-
+    './active-games.html',
 
 ];
 
