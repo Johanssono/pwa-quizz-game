@@ -18,8 +18,7 @@ class ServiceWorker {
         cache.addAll(
           '/',
           '/index.html',
-          '/css/main.css',
-          '/icon512_maskable.png',
+
         );
     })
     }
