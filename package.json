@@ -1,5 +1,7 @@
 {
   "name": "pwa-quizz-game",
+  "type": "module",
+
   "scripts": {
     "scss": "sass",
     "sass": "sass --watch css/scss/main.scss:css/main.css",
