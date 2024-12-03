@@ -2,8 +2,7 @@ const staticCacheName = 'site-static';
 const assets = [
   '/',
   '/index.html',
-  '/css/main.css',
-  '/icon512_maskable.png',
+
 
 
 ];
