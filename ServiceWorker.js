@@ -2,6 +2,10 @@ const staticCacheName = 'site-static';
 const assets = [
     '/',
     '/index.html',
+    '/css/main.css',
+    '/js/main.js',
+    '/active-games.html',
+    '/sign-up.html',
 ];
 
 self.addEventListener('install', evt => {
