@@ -103,3 +103,22 @@ export default class DataBase {
     }
   }
 }
+
+
+
+
+
+/*
+Will need a bearer token for all protected routes
+
+For API/register, Needs a body that have name, email, password_conformation
+
+Same for API loggin but no need for name
+
+Question is a protected route
+
+Create game is a protected route
+
+
+
+*/
