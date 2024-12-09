@@ -9,24 +9,35 @@
     <template id="answer-form">
         <article class="question-vh">
             <header class="header">
-                <h1 class="header-h1 marign-none">Vad heter Joel i efternamn?</h1>
+                <h1 id="question" class="header-h1 marign-none"></h1>
             </header>
             <section class="marigin-big">
                 <form action="submit" class=" question-grid">
-                    <button class="answer-btn">Berglund</button>
-                    <button class="answer-btn">Berglund</button>
-                    <button class="answer-btn">Berglund</button>
-                    <button class="answer-btn">Berglund</button>
+                    <button id="btn-1" class="answer-btn"></button>
+                    <button id="btn-2" class="answer-btn"></button>
+                    <button id="btn-3" class="answer-btn"></button>
+                    <button id="btn-4" class="answer-btn"></button>
                 </form>
             </section>
         </article>
     </template>
+    <template id="points">
+      <article class="question-vh">
+        <header class="header">
+          <h1 class="header-h1 marign-none">Poäng!</h1>
+        </header>
+        <section class="grid-1-col marigin-medium">
+          <p class="center-text">
+          Du fick:
+          </p>
+        </section>
+      </article>
+    </template>
 </head>
 <body class="white-bg marign-none">
-    <main>
-        
+    <main id="container">
+     
     </main>
-    
-    
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>

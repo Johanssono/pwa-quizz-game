@@ -1,14 +1,19 @@
+p, h1, h2, h3, h4, h5, h6 {
+  color: oklch(10% 0.0483 138.55deg);
+}
+
 .white-bg {
   background-color: oklch(100% 0.0483 138.55deg);
 }
 
 .header {
-  color: oklch(100% 0.0483 138.55deg);
+  color: oklch(10% 0.0483 138.55deg);
   display: flex;
   justify-content: center;
 }
 
 .header-h1 {
+  color: oklch(100% 0.0483 138.55deg);
   background-color: oklch(44% 0.0483 138.55deg);
   padding: 1em 0 2em 0;
   width: 20em;
@@ -33,6 +38,10 @@
   margin-top: 50svh;
 }
 
+.marigin-medium {
+  margin-top: 25svh;
+}
+
 .question-vh {
   min-height: 100vh;
 }
@@ -44,6 +53,16 @@
   min-height: 15em;
   margin-left: 5em;
   margin-right: 5em;
+}
+
+.grid-1-col {
+  display: grid;
+  grid-template-columns: 10em;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
 }
 
 button:hover {

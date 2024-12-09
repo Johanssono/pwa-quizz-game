@@ -1,8 +1,11 @@
 import DataBase from "./DataBase.js";
+import GameHandeler from "./GameHandeler.js";
 
 class Main {
   constructor() {
     this.dataBase = new DataBase();
+    this.gameHandeler = new GameHandeler();
+    this.gameContainer = document.getElementById("container");
   }
   RegisterServiceWorker() {
     if ("serviceWorker" in navigator) {
@@ -17,6 +20,15 @@ class Main {
     this.RegisterServiceWorker();
 
     this.dataBase.GetQuestion("geografi");
+
+    let url = window.location.href;
+    let ending = url.substring(url.lastIndexOf("/"));
+
+    if (ending === "game.html") {
+      debugger;
+    }
+    this.gameContainer.appendChild(this.gameHandeler.CreateGame(this.dataBase));
+
   }
 }
 

@@ -11,18 +11,21 @@ $black: oklch(10% 0.0483 138.55);
 $wrong-answer-color: oklch( 60% 0.1825 21.18);
 $right-answer-color: oklch( 70% 0.1776 141.88);
 
-
+p, h1, h2, h3, h4, h5, h6 {
+  color: $black;
+}
 
 .white-bg{
     background-color: $white;
 }
 
 .header{
-    color: $white;
+  color: $black;
     display: flex;
     justify-content: center;
 }
 .header-h1{
+    color: $white;
     background-color: $primary-color;
     padding: 1em 0 2em 0;
     width: 20em;
@@ -44,6 +47,9 @@ $right-answer-color: oklch( 70% 0.1776 141.88);
 .marigin-big{
     margin-top: 50svh;
 }
+.marigin-medium{
+  margin-top: 25svh;
+}
 
 .question-vh{
     min-height: 100vh;
@@ -56,6 +62,16 @@ $right-answer-color: oklch( 70% 0.1776 141.88);
     min-height: 15em;
     margin-left: 5em;
     margin-right: 5em;
+}
+
+.grid-1-col{
+  display: grid;
+  grid-template-columns: 10em;
+  justify-content: center;
+}
+
+.center-text{
+  text-align: center;
 }
 
 button:hover{
