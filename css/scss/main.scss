@@ -1,12 +1,77 @@
 $primary-color: oklch(44% 0.0483 138.55);
 $primary-color1: oklch(60% 0.0483 138.55);
 $primary-color2: oklch(65% 0.0483 138.55);
-$primary-color: oklch(80% 0.0483 138.55);
-$primary-color: oklch(95% 0.0483 138.55);
+$primary-color3: oklch(80% 0.0483 138.55);
+$primary-color4: oklch(95% 0.0483 138.55);
 $cta: oklch(82% 0.1455 79.31);
 $cta-hover: oklch(77% 0.1455 79.31);
 
-$white: oklch(99% 0.0483 138.55);
+$white: oklch(100% 0.0483 138.55);
 $black: oklch(10% 0.0483 138.55);
 $wrong-answer-color: oklch( 60% 0.1825 21.18);
 $right-answer-color: oklch( 70% 0.1776 141.88);
+
+
+
+.white-bg{
+    background-color: $white;
+}
+
+.header{
+    color: $white;
+    display: flex;
+    justify-content: center;
+}
+.header-h1{
+    background-color: $primary-color;
+    padding: 1em 0 2em 0;
+    width: 20em;
+    text-align: center;
+    border-radius: 0 0 1em 1em;
+}
+.marign-none{
+    margin: 0;
+}
+
+.answer-btn{
+    background-color: $primary-color;
+    color: $white;
+    font-size: 1.5em;
+    border: 0;
+    border-radius: 5px;
+    padding: 1em 3em 1em 3em;
+}
+.marigin-big{
+    margin-top: 50svh;
+}
+
+.question-vh{
+    min-height: 100vh;
+}
+
+.question-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em 1em;
+    min-height: 15em;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+@media (width < 45em) {
+    .question-grid{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
+
+@media (width < 35em){
+    .question-grid{
+        margin-left: 0em;
+        margin-right: 0em;
+    }
+}
