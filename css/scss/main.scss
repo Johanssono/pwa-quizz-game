@@ -8,86 +8,92 @@ $cta-hover: oklch(77% 0.1455 79.31);
 
 $white: oklch(100% 0.0483 138.55);
 $black: oklch(10% 0.0483 138.55);
-$wrong-answer-color: oklch( 60% 0.1825 21.18);
-$right-answer-color: oklch( 70% 0.1776 141.88);
+$wrong-answer-color: oklch(60% 0.1825 21.18);
+$right-answer-color: oklch(70% 0.1776 141.88);
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $black;
 }
 
-.white-bg{
-    background-color: $white;
+.white-bg {
+  background-color: $white;
 }
 
-.header{
+.header {
   color: $black;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-.header-h1{
-    color: $white;
-    background-color: $primary-color;
-    padding: 1em 0 2em 0;
-    width: 20em;
-    text-align: center;
-    border-radius: 0 0 1em 1em;
+.header-h1 {
+  color: $white;
+  background-color: $primary-color;
+  padding: 1em 0 2em 0;
+  width: 20em;
+  text-align: center;
+  border-radius: 0 0 1em 1em;
 }
-.marign-none{
-    margin: 0;
+.marign-none {
+  margin: 0;
 }
 
-.answer-btn{
-    background-color: $primary-color;
-    color: $white;
-    font-size: 1.5em;
-    border: 0;
-    border-radius: 5px;
-    padding: 1em 3em 1em 3em;
+.answer-btn {
+  background-color: $primary-color;
+  color: $white;
+  font-size: 1.5em;
+  border: 0;
+  border-radius: 5px;
+  padding: 1em 3em 1em 3em;
 }
-.marigin-big{
-    margin-top: 50svh;
+.marigin-big {
+  margin-top: 50svh;
 }
-.marigin-medium{
+.marigin-medium {
   margin-top: 25svh;
 }
 
-.question-vh{
-    min-height: 100vh;
+.question-vh {
+  min-height: 100vh;
 }
 
-.question-grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5em 1em;
-    min-height: 15em;
-    margin-left: 5em;
-    margin-right: 5em;
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em 1em;
+  min-height: 15em;
+  margin-left: 5em;
+  margin-right: 5em;
 }
 
-.grid-1-col{
+.grid-1-col {
   display: grid;
   grid-template-columns: 10em;
   justify-content: center;
 }
 
-.center-text{
+.center-text {
   text-align: center;
 }
 
-button:hover{
-    cursor: pointer;
+button:hover {
+  cursor: pointer;
 }
 
 @media (width < 45em) {
-    .question-grid{
-        margin-left: 1em;
-        margin-right: 1em;
-    }
+  .question-grid {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
-@media (width < 35em){
-    .question-grid{
-        margin-left: 0em;
-        margin-right: 0em;
-    }
+@media (width < 35em) {
+  .question-grid {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
 }

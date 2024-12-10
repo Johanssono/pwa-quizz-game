@@ -1,25 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main.css" />
     <template id="answer-form">
-        <article class="question-vh">
-            <header class="header">
-                <h1 id="question" class="header-h1 marign-none"></h1>
-            </header>
-            <section class="marigin-big">
-                <form action="submit" class=" question-grid">
-                    <button id="btn-1" class="answer-btn"></button>
-                    <button id="btn-2" class="answer-btn"></button>
-                    <button id="btn-3" class="answer-btn"></button>
-                    <button id="btn-4" class="answer-btn"></button>
-                </form>
-            </section>
-        </article>
+      <article class="question-vh">
+        <header class="header">
+          <h1 id="question" class="header-h1 marign-none"></h1>
+        </header>
+        <section class="marigin-big">
+          <form action="submit" class="question-grid">
+            <button id="btn-1" class="answer-btn"></button>
+            <button id="btn-2" class="answer-btn"></button>
+            <button id="btn-3" class="answer-btn"></button>
+            <button id="btn-4" class="answer-btn"></button>
+          </form>
+        </section>
+      </article>
     </template>
     <template id="points">
       <article class="question-vh">
@@ -27,17 +27,13 @@
           <h1 class="header-h1 marign-none">Poäng!</h1>
         </header>
         <section class="grid-1-col marigin-medium">
-          <p class="center-text">
-          Du fick:
-          </p>
+          <p class="center-text">Du fick:</p>
         </section>
       </article>
     </template>
-</head>
-<body class="white-bg marign-none">
-    <main id="container">
-     
-    </main>
+  </head>
+  <body class="white-bg marign-none">
+    <div id="container"></div>
     <script type="module" src="./js/main.js"></script>
-</body>
+  </body>
 </html>

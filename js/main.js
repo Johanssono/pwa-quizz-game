@@ -14,7 +14,7 @@ class Main {
       });
     }
   }
-  
+
   Main() {
     const clickEvent = "click";
     this.RegisterServiceWorker();
@@ -25,10 +25,8 @@ class Main {
     let ending = url.substring(url.lastIndexOf("/"));
 
     if (ending === "game.html") {
-      debugger;
     }
     this.gameContainer.appendChild(this.gameHandeler.CreateGame(this.dataBase));
-
   }
 }
 

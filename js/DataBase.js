@@ -1,17 +1,19 @@
-export default class DataBase{
-  async GetQuestion(category){
-    const response = await fetch("https://eel-simple-highly.ngrok-free.app/api/question", {
+export default class DataBase {
+  async GetQuestion(category) {
+    fetch("https://eel-simple-highly.ngrok-free.app/api/question", {
       method: "POST",
       headers: {
-        "accept": "application/json",
+        accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        category: category
-      })
-    });
-
-    const json = response.json()
-    sessionStorage.setItem("question", json);
+        category: category,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        sessionStorage.setItem("question", JSON.stringify(json));
+        return JSON.stringify(json);
+      });
   }
 }
