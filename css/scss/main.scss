@@ -106,13 +106,13 @@ button:hover {
   background-color: $primary-color;
 }
 
-@media (width < 45em) {
+@media (width < 720px) {
   .question-grid {
     margin: 0 1em;
   }
 }
 
-@media (width < 35em) {
+@media (width < 560px) {
   .question-grid {
     margin: 0 .5em;
   }
@@ -124,7 +124,7 @@ button:hover {
     padding: .5em 1.5em .5em 1.5em;
   }
 }
-@media (width < 20em) {
+@media (width < 320px) {
   .question-grid {
     margin: 0 .5em;
 
