@@ -8,6 +8,10 @@ h6 {
   color: oklch(10% 0.0483 138.55deg);
 }
 
+body {
+  font-size: 16px;
+}
+
 .white-bg {
   background-color: oklch(100% 0.0483 138.55deg);
 }
@@ -99,6 +103,9 @@ button:hover {
 @media (width < 720px) {
   .question-grid {
     margin: 0 1em;
+  }
+  .marigin-big {
+    margin-top: 35svh;
   }
 }
 @media (width < 560px) {

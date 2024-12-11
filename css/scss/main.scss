@@ -20,6 +20,9 @@ h5,
 h6 {
   color: $black;
 }
+body {
+  font-size: 16px;
+}
 
 .white-bg {
   background-color: $white;
@@ -109,6 +112,9 @@ button:hover {
 @media (width < 720px) {
   .question-grid {
     margin: 0 1em;
+  }
+  .marigin-big {
+    margin-top: 35svh;
   }
 }
 
