@@ -1,0 +1,112 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: oklch(10% 0.0483 138.55deg);
+}
+
+.white-bg {
+  background-color: oklch(100% 0.0483 138.55deg);
+}
+
+.white-text {
+  color: oklch(100% 0.0483 138.55deg);
+}
+
+.header {
+  color: oklch(10% 0.0483 138.55deg);
+  display: flex;
+  justify-content: center;
+}
+
+.header-h1 {
+  color: oklch(100% 0.0483 138.55deg);
+  background-color: oklch(44% 0.0483 138.55deg);
+  padding: 1em 0 2em 0;
+  width: 20em;
+  text-align: center;
+  border-radius: 0 0 1em 1em;
+}
+
+.marign-none {
+  margin: 0;
+}
+
+.answer-btn {
+  background-color: oklch(44% 0.0483 138.55deg);
+  color: oklch(100% 0.0483 138.55deg);
+  font-size: 1.5em;
+  border: 0;
+  border-radius: 5px;
+  padding: 1em 3em 1em 3em;
+  text-decoration: none;
+}
+
+.marigin-big {
+  margin-top: 50svh;
+}
+
+.marigin-medium {
+  margin-top: 25svh;
+}
+
+.question-vh {
+  min-height: 100vh;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em 1em;
+  min-height: 15em;
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
+.grid-1-col {
+  display: grid;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.marigin-small {
+  margin-top: 10em;
+}
+
+.points-card {
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.points {
+  font: 2em bold;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.background-primary {
+  background-color: oklch(44% 0.0483 138.55deg);
+}
+
+@media (width < 45em) {
+  .question-grid {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+@media (width < 35em) {
+  .question-grid {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
