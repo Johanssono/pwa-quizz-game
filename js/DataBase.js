@@ -1,6 +1,6 @@
 export default class DataBase {
   async GetQuestion(category) {
-    fetch("https://eel-simple-highly.ngrok-free.app/api/question", {
+    await fetch("https://eel-simple-highly.ngrok-free.app/api/question", {
       method: "POST",
       headers: {
         accept: "application/json",
@@ -13,7 +13,6 @@ export default class DataBase {
       .then((response) => response.json())
       .then((json) => {
         sessionStorage.setItem("question", JSON.stringify(json));
-        return JSON.stringify(json);
       });
   }
 }

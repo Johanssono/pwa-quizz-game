@@ -12,6 +12,10 @@ h6 {
   background-color: oklch(100% 0.0483 138.55deg);
 }
 
+.white-text {
+  color: oklch(100% 0.0483 138.55deg);
+}
+
 .header {
   color: oklch(10% 0.0483 138.55deg);
   display: flex;
@@ -38,6 +42,7 @@ h6 {
   border: 0;
   border-radius: 5px;
   padding: 1em 3em 1em 3em;
+  text-decoration: none;
 }
 
 .marigin-big {
@@ -63,7 +68,6 @@ h6 {
 
 .grid-1-col {
   display: grid;
-  grid-template-columns: 10em;
   justify-content: center;
 }
 
@@ -71,8 +75,25 @@ h6 {
   text-align: center;
 }
 
+.marigin-small {
+  margin-top: 10em;
+}
+
+.points-card {
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.points {
+  font: 2em bold;
+}
+
 button:hover {
   cursor: pointer;
+}
+
+.background-primary {
+  background-color: oklch(44% 0.0483 138.55deg);
 }
 
 @media (width < 45em) {
