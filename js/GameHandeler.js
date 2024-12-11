@@ -23,10 +23,7 @@ export default class GameHandeler {
       sessionStorage.getItem("questionsAnswerd") || 0,
     );
 
-    console.log("Before rendering - questionsAnswerd:", this.questionsAnswerd);
-    console.log("Total questions in JSON:", json.questions.length);
-
-    // Get the existing template content or create new if not exists
+   
     let questionHtml = this.gameContainer.querySelector(".question-vh");
     if (!questionHtml) {
       const template = document.getElementById("answer-form");
@@ -34,7 +31,7 @@ export default class GameHandeler {
       this.gameContainer.appendChild(questionHtml);
     }
 
-    // Update the content directly in the existing elements
+    
     const question = questionHtml.querySelector("#question");
     const answersBtn = [
       questionHtml.querySelector("#btn-1"),
@@ -50,20 +47,12 @@ export default class GameHandeler {
       json.questions[this.questionsAnswerd].answer4,
     ];
 
-    // Update question text
+
     question.textContent = json.questions[this.questionsAnswerd].question;
 
-    // Update answer buttons
     for (let i = 0; i < 4; i++) {
       answersBtn[i].textContent = answer[answersLeftToPlace[i]];
     }
-
-    // Log to verify
-    console.log(
-      "Updated question:",
-      json.questions[this.questionsAnswerd].question,
-      "questions answerd: ", this.questionsAnswerd,
-    );
   }
 
   CreatePointsScreen() {
@@ -82,8 +71,6 @@ export default class GameHandeler {
 
     pointsSetter.textContent = sessionStorage.getItem("points");
 
-    console.log(pointsHtml);
-
     sessionStorage.setItem("questionsAnswerd", 0);
     sessionStorage.setItem("points", 0);
 
@@ -95,13 +82,6 @@ export default class GameHandeler {
     this.questionsAnswerd = parseInt(
       sessionStorage.getItem("questionsAnswerd") || 0,
     );
-
-    console.log("Current question index:", this.questionsAnswerd);
-    console.log("Total questions:", json.questions.length);
-    console.log("Submitted answer:", answer);
-    console.log("Correct answer:", json.questions[this.questionsAnswerd].answer1);
-
-    console.log(json, "oihqawidj", answer);
 
     if (json.questions[this.questionsAnswerd].answer1 == answer) {
       this.points = sessionStorage.getItem("points");
