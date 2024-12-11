@@ -80,7 +80,7 @@ export default class GameHandeler {
     const heading = pointsHtml.querySelector("#points-header");
     const pointsSetter = pointsHtml.querySelector("#set-points");
 
-    pointsSetter.textContent = sessionStorage.getItem("points");
+    pointsSetter.textContent = sessionStorage.getItem("points") + "/10";
 
     console.log(pointsHtml);
 
