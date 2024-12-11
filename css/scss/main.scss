@@ -129,6 +129,9 @@ button:hover {
     font-size: 1em;
     padding: .5em 1.5em .5em 1.5em;
   }
+  .marigin-big {
+    margin-top: 35svh;
+  }
 }
 @media (width < 320px) {
   .question-grid {
@@ -141,5 +144,8 @@ button:hover {
   .question-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: .75em .5em;
+  }
+  .marigin-big {
+    margin-top: 35svh;
   }
 }
