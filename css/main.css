@@ -98,14 +98,31 @@ button:hover {
 
 @media (width < 45em) {
   .question-grid {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin: 0 1em;
   }
 }
 @media (width < 35em) {
   .question-grid {
-    margin-left: 0em;
-    margin-right: 0em;
+    margin: 0 0.5em;
+  }
+  .header-h1 {
+    margin: 0 0.5em;
+  }
+  .answer-btn {
+    font-size: 1em;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+  }
+}
+@media (width < 20em) {
+  .question-grid {
+    margin: 0 0.5em;
+  }
+  .header-h1 {
+    font-size: 1.25em;
+  }
+  .question-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75em 0.5em;
   }
 }
 
