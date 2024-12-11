@@ -118,4 +118,21 @@ button:hover {
     margin-left: 0em;
     margin-right: 0em;
   }
+  .answer-btn {
+    font-size: 1em;
+    padding: .5em 1.5em .5em 1.5em;
+  }
+}
+@media (width < 20em) {
+  .question-grid {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .header-h1 {
+    font-size: 1.25em;
+  }
+  .question-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: .75em .5em;
+  }
 }

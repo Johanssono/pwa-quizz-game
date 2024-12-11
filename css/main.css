@@ -107,6 +107,23 @@ button:hover {
     margin-left: 0em;
     margin-right: 0em;
   }
+  .answer-btn {
+    font-size: 1em;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+  }
+}
+@media (width < 20em) {
+  .question-grid {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .header-h1 {
+    font-size: 1.25em;
+  }
+  .question-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75em 0.5em;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
