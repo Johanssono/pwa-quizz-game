@@ -26,7 +26,7 @@ class Main {
     let url = window.location.href;
     let ending = url.substring(url.lastIndexOf("/"));
 
-    const categori = ["geografi"];
+    const categori = ["geografi", "Historia", "Filmer", "Musik", "Allmänbildning"];
     const randomQuestion = Math.floor(Math.random() * categori.length);
 
     if (ending === "/game.html" || ending === "/game.html?") {
