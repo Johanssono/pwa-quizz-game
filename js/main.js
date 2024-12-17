@@ -1,80 +1,68 @@
 import DataBase from "./DataBase.js";
-import EventManager from "./EventManager.js";
 import GameHandeler from "./GameHandeler.js";
+import EventManager from "./EventManager.js";
 
 class Main {
   constructor() {
     this.dataBase = new DataBase();
-    this.eventManager = new EventManager();
     this.gameHandeler = new GameHandeler();
-    this.btnDBRequest = document.getElementById("btnDBRequest");
-    this.displayData = document.getElementById("dBData");
-    this.btnCreateAccount = document.getElementById("createAccount");
-    this.email = document.getElementById("email");
-    this.password = [
-      document.getElementById("password1"),
-      document.getElementById("password2"),
+    this.eventManager = new EventManager();
+    this.container = document.getElementById("container");
+    this.answersBtns = [
     ];
-    this.btnSignIn = document.getElementById("signIn");
-    this.btnCreateGame = document.getElementById("createGame");
-
-    this.tmp = document.getElementById("tmp");
   }
   RegisterServiceWorker() {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./ServiceWorker.js").then((reg) => {
+      navigator.serviceWorker.register("./js/ServiceWorker.js").then((reg) => {
         console.log("Registration succeeded. Scope is " + reg.scope);
       });
     }
   }
-  async DisplayQuestion(id) {
-    const DBData = await this.dataBase.GetARowFrom("quizz", id);
 
-    if (DBData !== null) {
-      DBData.map((data) => {
-        this.displayData.innerHTML = data.questions;
-      });
-    }
-  }
-  async CreateAccount() {
-    const {
-      data: { user },
-    } = await this.dataBase.supabase.auth.getUser();
-
-    console.log(user);
-  }
-
-  async SignInUser() {
-    const {
-      data: { user },
-    } = await this.dataBase.supabase.auth.getUser();
-
-    console.log("HEJJJJJ");
-
-    console.log(user);
-  }
-  Main() {
+  async Main() {
     const clickEvent = "click";
     this.RegisterServiceWorker();
 
-    this.eventManager.ElementEventListener(this.btnDBRequest, clickEvent, () =>
-      this.DisplayQuestion(1),
-    );
+    let url = window.location.href;
+    let ending = url.substring(url.lastIndexOf("/"));
 
-    this.eventManager.ElementEventListener(this.btnCreateAccount, clickEvent, () =>
-      this.dataBase.SignUpUser(this.email.value, [
-        this.password[0].value,
-        this.password[1].value,
-      ]),
-    );
+    const categori = ["geografi", "Historia", "Filmer", "Musik", "Allmänbildning"];
+    const randomQuestion = Math.floor(Math.random() * categori.length);
 
-    this.eventManager.ElementEventListener(this.btnSignIn, clickEvent, () =>
-      this.dataBase.SignInUser(this.email.value, this.password.value),
-    );
+    if (ending === "/game.html" || ending === "/game.html?") {
+     await this.dataBase.GetQuestion(categori[randomQuestion]);
 
-    this.eventManager.ElementEventListener(this.btnCreateGame, clickEvent, () =>
-      this.gameHandeler.CreateGame(this.dataBase),
-    );
+      this.gameHandeler.CreateGameScreen();
+
+      const container = document.getElementById("container");
+      const answersBtns = [
+        this.container.querySelector("#btn-1"),
+        this.container.querySelector("#btn-2"),
+        this.container.querySelector("#btn-3"),
+        this.container.querySelector("#btn-4"),
+      ];
+
+      answersBtns[0].addEventListener(clickEvent, (event) => {
+        this.gameHandeler.ButtonAnswer(answersBtns[0].outerText);
+      });
+      answersBtns[1].addEventListener(clickEvent, (event) => {
+        this.gameHandeler.ButtonAnswer(answersBtns[1].outerText);
+      });
+      answersBtns[2].addEventListener(clickEvent, (event) => {
+        this.gameHandeler.ButtonAnswer(answersBtns[2].outerText);
+      });
+      answersBtns[3].addEventListener(clickEvent, (event) => {
+        this.gameHandeler.ButtonAnswer(answersBtns[3].outerText);
+      });
+
+      
+    }
+
+    
+
+    
+
+    
   }
 }
 
