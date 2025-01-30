@@ -1,12 +1,13 @@
 const staticCacheName = 'site-static';
 const assets = [
     './',
+    '/index.html'
 
 ];
 
 self.addEventListener('install', evt => {
     console.log('service worker has been installed');
-    evt.waitUntil(    
+    evt.waitUntil(
         caches.open(staticCacheName).then(cache => {
             console.log('caching assets');
             cache.addAll(assets);
