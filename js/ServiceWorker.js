@@ -2,9 +2,7 @@ const staticCacheName = 'site-static';
 const assets = [
     './',
     '/index.html',
-    '/game.html',
-    '/sign-up.html',
-    '/css/main.css',
+
 
 ];
 
