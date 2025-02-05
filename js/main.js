@@ -2,6 +2,15 @@ import DataBase from "./DataBase.js";
 import GameHandeler from "./GameHandeler.js";
 import EventManager from "./EventManager.js";
 
+
+document.addEventListener("onclick", function () {
+  let audioElement = document.getElementById("audio")
+  audioElement.play()
+})
+
+
+
+
 class Main {
   constructor() {
     this.dataBase = new DataBase();
@@ -30,7 +39,7 @@ class Main {
     const randomQuestion = Math.floor(Math.random() * categori.length);
 
     if (ending === "/game.html" || ending === "/game.html?") {
-     await this.dataBase.GetQuestion(categori[randomQuestion]);
+      await this.dataBase.GetQuestion(categori[randomQuestion]);
 
       this.gameHandeler.CreateGameScreen();
 
@@ -55,14 +64,14 @@ class Main {
         this.gameHandeler.ButtonAnswer(answersBtns[3].outerText);
       });
 
-      
+
     }
 
-    
 
-    
 
-    
+
+
+
   }
 }
 
