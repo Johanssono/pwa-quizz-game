@@ -20,7 +20,7 @@ function darkmode() {
         if (window.matchMedia("(prefers-color-scheme: light)").matches) {
             document.cookie = "Color=11;";
         } else {
-            document.cookie = "Color=11;";
+            document.cookie = "Color=01;";
         }
     } else {
         dark = true;
