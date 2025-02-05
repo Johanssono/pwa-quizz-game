@@ -42,3 +42,40 @@ window.onload = function start() {
         darkmode();
     }
 }
+
+function hejhej() {
+    const word = document.getElementById("search-input").value.toLowerCase();
+
+    const link_vindkraft = "wind.html";
+    const link_vattenkraft = "water.html";
+    const link_solenergi = "solar.html";
+    const link_vågkraft = "wave.html";
+    const link_kärnkraft = "nuclear.html";
+    const link_home = "index.html";
+
+    if (word === "vindkraft") {
+        window.location.href = link_vindkraft;
+    } else if (word === "vattenkraft") {
+        window.location.href = link_vattenkraft;
+    } else if (word === "solkraft") {
+        window.location.href = link_solkraft;
+    } else if (word === "vågkraft") {
+        window.location.href = link_vågkraft
+    } else if (word === "kärnkraft") {
+        window.location.href = link_kärnkraft;
+    } else if (word === "wind power") {
+        window.location.href = link_vindkraft;
+    } else if (word === "water power") {
+        window.location.href = link_vattenkraft;
+    } else if (word === "solar power") {
+        window.location.href = link_solkraft;
+    } else if (word === "nuclear power") {
+        window.location.href = link_kärnkraft;
+    } else if (word === "hydropower") {
+        window.location.href = link_vattenkraft;
+    } else if (word === "techhub") {
+        window.location.href = link_home;
+    } else {
+        window.location.href = "notfound.html"
+    }
+}
