@@ -95,3 +95,5 @@ window.onload = function start() {
         darkmode();
     }
 }
+
+*/

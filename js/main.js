@@ -2,11 +2,27 @@ import DataBase from "./DataBase.js";
 import GameHandeler from "./GameHandeler.js";
 import EventManager from "./EventManager.js";
 
-
+/*
 document.addEventListener("onclick", function () {
   let audioElement = document.getElementById("audio")
   audioElement.play()
 })
+
+
+
+var source = "snake.mp3";
+var audio = new Audio(); // use the constructor in JavaScript, just easier that way
+audio.addEventListener("load", function () {
+  audio.play();
+}, true);
+audio.src = source;
+audio.autoplay = true; // add this
+
+*/
+
+
+
+
 
 
 
