@@ -55,7 +55,7 @@ function update() {
     if (!played) {
         if (tillPlayed) {
             song.currentTime = tillPlayed;
-            if (ifPaused) {
+            if (!song.paused) {
                 song.play();
                 played = true;
             }
@@ -76,7 +76,7 @@ function update() {
 }
 setInterval(update, 1000);
 
-
+console.log(song)
 
 
 
