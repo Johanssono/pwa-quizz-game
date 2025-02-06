@@ -8,21 +8,12 @@ document.addEventListener("onclick", function () {
   audioElement.play()
 })
 
+document.querySelector("#audio").autoplay = true;
 
 
-var source = "snake.mp3";
-var audio = new Audio(); // use the constructor in JavaScript, just easier that way
-audio.addEventListener("load", function () {
-  audio.play();
-}, true);
-audio.src = source;
-audio.autoplay = true; // add this
+
 
 */
-
-
-
-
 
 
 
