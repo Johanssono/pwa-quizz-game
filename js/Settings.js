@@ -1,16 +1,10 @@
+
+
+
+
+
 function ColorCheck() {
-    if (
-        "11" ==
-        (document.cookie.match(/^(?:.*;)?\s*Color\s*=\s*([^;]+)(?:.*)?$/) || [
-            ,
-            null,
-        ])[1] ||
-        "10" ==
-        (document.cookie.match(/^(?:.*;)?\s*Color\s*=\s*([^;]+)(?:.*)?$/) || [
-            ,
-            null,
-        ])[1]
-    ) {
+    if ("11" == (document.cookie.match(/^(?:.*;)?\s*Color\s*=\s*([^;]+)(?:.*)?$/) || [, null])[1] || "10" == (document.cookie.match(/^(?:.*;)?\s*Color\s*=\s*([^;]+)(?:.*)?$/) || [, null])[1]) {
         if (window.matchMedia("(prefers-color-scheme: light)").matches) {
             document.documentElement.setAttribute("data-theme", "dark");
         } else {
@@ -23,7 +17,6 @@ function ColorCheck() {
     }
 }
 var dark = false;
-
 function darkmode() {
     if (dark) {
         dark = false;
@@ -45,4 +38,12 @@ function darkmode() {
         }
     }
     ColorCheck();
+}
+window.onload = function start() {
+    if ("11" == (document.cookie.match(/^(?:.*;)?\s*Color\s*=\s*([^;]+)(?:.*)?$/) || [, null])[1] || "01" == (document.cookie.match(/^(?:.*;)?\s*Color\s*=\s*([^;]+)(?:.*)?$/) || [, null])[1]) {
+        ColorCheck();
+    }
+    else {
+        darkmode();
+    }
 }
