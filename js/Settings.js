@@ -18,10 +18,6 @@ function getCookie(c_name) {
     }
 }
 
-function isPlaying(audioEl) {
-    return !audioEl.paused;
-}
-
 var song = document.getElementsByTagName('audio')[0];
 var played = false;
 var tillPlayed = getCookie('timePlayed');
@@ -29,18 +25,13 @@ function update() {
     if (!played) {
         if (tillPlayed) {
             song.currentTime = tillPlayed;
+            song.play();
             played = true;
-            if (!myAudio.paused) {
-                song.play();
-                played = true;
-            }
+            if (!paused)
 
         }
         else {
-            if (!myAudio.paused) {
-                song.play();
-                played = true;
-            }
+            song.play();
             played = true;
         }
     }
