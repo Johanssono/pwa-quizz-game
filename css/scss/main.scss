@@ -20,6 +20,7 @@ h5,
 h6 {
   color: $black;
 }
+
 body {
   font-size: 16px;
 }
@@ -37,6 +38,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .header-h1 {
   color: $white;
   background-color: $primary-color;
@@ -45,6 +47,7 @@ body {
   text-align: center;
   border-radius: 0 0 1em 1em;
 }
+
 .marign-none {
   margin: 0;
 }
@@ -58,9 +61,11 @@ body {
   padding: 1em 3em 1em 3em;
   text-decoration: none;
 }
+
 .marigin-big {
   margin-top: 50svh;
 }
+
 .marigin-medium {
   margin-top: 25svh;
 }
@@ -113,6 +118,7 @@ button:hover {
   .question-grid {
     margin: 0 1em;
   }
+
   .marigin-big {
     margin-top: 35svh;
   }
@@ -122,29 +128,36 @@ button:hover {
   .question-grid {
     margin: 0 .5em;
   }
+
   .header-h1 {
     margin: 0 .5em;
   }
+
   .answer-btn {
     font-size: 1em;
     padding: .5em 1.5em .5em 1.5em;
   }
+
   .marigin-big {
     margin-top: 35svh;
   }
 }
+
 @media (width < 320px) {
   .question-grid {
     margin: 0 .5em;
 
   }
+
   .header-h1 {
     font-size: 1.25em;
   }
+
   .question-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: .75em .5em;
   }
+
   .marigin-big {
     margin-top: 35svh;
   }
