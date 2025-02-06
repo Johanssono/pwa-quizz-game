@@ -55,26 +55,26 @@ function update() {
     if (!played) {
         if (tillPlayed) {
             song.currentTime = tillPlayed;
-            if (!song.paused) {
-                song.play();
-                played = true;
-            }
-            else {
-                played = true;
-            }
+            played = true;
+
+
         }
         else {
-            song.play();
             played = true;
         }
     }
 
     else {
         setCookie('timePlayed', song.currentTime);
-        PauseCookie('paused', myAudio.paused)
     }
 }
 setInterval(update, 1000);
+
+function paused() {
+    if (!song.paused) {
+        song.play();
+    }
+}
 
 console.log(song)
 
