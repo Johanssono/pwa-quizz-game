@@ -71,7 +71,7 @@ function update() {
 
     else {
         setCookie('timePlayed', song.currentTime);
-        PauseCookie('paused', myAudio)
+        PauseCookie('paused', myAudio.paused)
     }
 }
 setInterval(update, 1000);
