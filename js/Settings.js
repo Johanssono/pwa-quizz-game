@@ -1,29 +1,3 @@
-
-function PauseCookie(c_name, value, exdays) {
-    var exdate = new Date();
-    exdate.setDate(exdate.getDate() + exdays);
-    var c_value = escape(value) +
-        ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-    document.cookie = c_name + "=" + c_value;
-}
-
-function getPauseCookie(c_name) {
-    var i, x, y, ARRcookies = document.cookie.split(";");
-    for (i = 0; i < ARRcookies.length; i++) {
-        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
-        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
-        x = x.replace(/^\s+|\s+$/g, "");
-        if (x == c_name) {
-            return unescape(y);
-        }
-    }
-}
-
-
-
-
-
-
 function setCookie(c_name, value, exdays) {
     var exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
@@ -44,12 +18,8 @@ function getCookie(c_name) {
     }
 }
 
-var audio = document.getElementById('audioplayer');
-
 var song = document.getElementsByTagName('audio')[0];
 var played = false;
-var ifPaused = getPauseCookie('paused');
-
 var tillPlayed = getCookie('timePlayed');
 function update() {
     if (!played) {
@@ -70,20 +40,7 @@ function update() {
 }
 setInterval(update, 1000);
 
-document.getElementsByTagName("audioplayer").addEventListener("click", paused)
-function paused() {
-    if (song.pause) {
-        PauseCookie('paused', audio.paused)
-        if (!song.paused) {
-            song.play();
-        }
-    }
-}
 
-console.log(song)
-
-
-console.log(song)
 
 
 
