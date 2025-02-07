@@ -15,11 +15,11 @@ document.querySelector("#audio").autoplay = true;
 
 */
 
+
 function setCookie(c_name, value, exdays) {
   var exdate = new Date();
   exdate.setDate(exdate.getDate() + exdays);
-  var c_value = escape(value) +
-    ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+  var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
   document.cookie = c_name + "=" + c_value;
 }
 
@@ -37,8 +37,6 @@ function getCookie(c_name) {
 
 var song = document.getElementsByTagName('audio')[0];
 var played = false;
-var ifPaused = getPauseCookie('paused');
-
 var tillPlayed = getCookie('timePlayed');
 function update() {
   if (!played) {
