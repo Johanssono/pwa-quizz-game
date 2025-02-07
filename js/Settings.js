@@ -44,7 +44,7 @@ function getCookie(c_name) {
     }
 }
 
-var myAudio = document.getElementById('audioplayer');
+var audio = document.getElementById('audioplayer');
 
 var song = document.getElementsByTagName('audio')[0];
 var played = false;
@@ -55,11 +55,11 @@ function update() {
     if (!played) {
         if (tillPlayed) {
             song.currentTime = tillPlayed;
+            song.play();
             played = true;
-
-
         }
         else {
+            song.play();
             played = true;
         }
     }
@@ -70,11 +70,18 @@ function update() {
 }
 setInterval(update, 1000);
 
+document.getElementsByTagName("audioplayer").addEventListener("click", paused)
 function paused() {
-    if (!song.paused) {
-        song.play();
+    if (song.pause) {
+        PauseCookie('paused', audio.paused)
+        if (!song.paused) {
+            song.play();
+        }
     }
 }
+
+console.log(song)
+
 
 console.log(song)
 
