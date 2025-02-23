@@ -1,13 +1,13 @@
 
 function setCookie(c_name, value, exdays) {
-    var exdate = new Date();
+    const exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
-    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+    let c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
     document.cookie = c_name + "=" + c_value;
 }
 
 function getCookie(c_name) {
-    var i, x, y, ARRcookies = document.cookie.split(";");
+    let i, x, y, ARRcookies = document.cookie.split(";");
     for (i = 0; i < ARRcookies.length; i++) {
         x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
         y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
@@ -18,9 +18,9 @@ function getCookie(c_name) {
     }
 }
 
-var song = document.getElementsByTagName('audio')[0];
-var played = false;
-var tillPlayed = getCookie('timePlayed');
+const song = document.getElementsByTagName('audio')[0];
+let played = false;
+const tillPlayed = getCookie('timePlayed');
 function update() {
     if (!played) {
         if (tillPlayed) {
@@ -38,7 +38,11 @@ function update() {
         setCookie('timePlayed', song.currentTime);
     }
 }
-setInterval(update, 1000);
+
+let paused = getSessionStorage("paused") || false;
+if (!paused) {
+    setinterval(update, 1000);
+}
 
 
 
@@ -56,7 +60,7 @@ function ColorCheck() {
         document.documentElement.setAttribute("data-theme", "dark");
     }
 }
-var dark = false;
+const dark = false;
 function darkmode() {
     if (dark) {
         dark = false;
