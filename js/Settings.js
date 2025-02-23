@@ -22,27 +22,30 @@ const song = document.getElementsByTagName('audio')[0];
 let played = false;
 const tillPlayed = getCookie('timePlayed');
 function update() {
-    if (!played) {
-        if (tillPlayed) {
-            song.currentTime = tillPlayed;
-            song.play();
-            played = true;
+    let paused = getSessionStorage("paused") || false;
+
+
+    if (!song.paused) {
+        if (!played) {
+            if (tillPlayed) {
+                song.currentTime = tillPlayed;
+                song.play();
+                played = true;
+            }
+            else {
+                song.play();
+                played = true;
+            }
         }
+
         else {
-            song.play();
-            played = true;
+            setCookie('timePlayed', song.currentTime);
         }
     }
-
-    else {
-        setCookie('timePlayed', song.currentTime);
-    }
 }
 
-let paused = getSessionStorage("paused") || false;
-if (!paused) {
-    setinterval(update, 1000);
-}
+setinterval(update, 1000);
+
 
 
 
